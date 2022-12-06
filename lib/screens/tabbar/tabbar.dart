@@ -10,7 +10,8 @@ class TabbarItem {
   final String boldIcon;
   final String label;
 
-  TabbarItem({required this.lightIcon, required this.boldIcon, required this.label});
+  TabbarItem(
+      {required this.lightIcon, required this.boldIcon, required this.label});
 
   BottomNavigationBarItem item(bool isbold) {
     return BottomNavigationBarItem(
@@ -73,8 +74,8 @@ class _FRTabbarScreenState extends State<FRTabbarScreen> {
       label: 'Wallet',
     ),
     BottomNavigationBarItem(
-      icon: generateIcon('light/Profile@2x.png'),
-      activeIcon: generateIcon('bold/Profile@2x.png'),
+      icon: generateIcon('light/profile_icon.png'),
+      activeIcon: generateIcon('bold/profile_icon.png'),
       label: 'Profile',
     ),
   ];
@@ -88,6 +89,7 @@ class _FRTabbarScreenState extends State<FRTabbarScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: screens[_select],
       bottomNavigationBar: BottomNavigationBar(
         items: items,
