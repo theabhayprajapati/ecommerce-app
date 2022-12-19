@@ -9,6 +9,11 @@
 .history
 .svn/
 migrate_working_dir/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # IntelliJ related
 *.iml
@@ -21,10 +26,6 @@ migrate_working_dir/
 # is commented out by default.
 #.vscode/
 
-<<<<<<< HEAD
-=======
-#localtest
->>>>>>> trunk
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
@@ -35,10 +36,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-<<<<<<< HEAD
-=======
-/localtest
->>>>>>> trunk
 
 # Symbolication related
 app.*.symbols
