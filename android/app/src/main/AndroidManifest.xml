@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fresh_store_ui">
+<<<<<<< HEAD
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+>>>>>>> trunk
    <application
         android:label="fresh_store_ui"
         android:name="${applicationName}"
@@ -14,7 +18,11 @@
             android:windowSoftInputMode="adjustResize">
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
+<<<<<<< HEAD
                  while the Flutter UI initializes. After that, this theme continues
+=======
+                 while the Flutter UI initializes. After that, this theme co    ntinues
+>>>>>>> trunk
                  to determine the Window background behind the Flutter UI. -->
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"

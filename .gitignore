@@ -21,6 +21,10 @@ migrate_working_dir/
 # is commented out by default.
 #.vscode/
 
+<<<<<<< HEAD
+=======
+#localtest
+>>>>>>> trunk
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
@@ -31,6 +35,10 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+<<<<<<< HEAD
+=======
+/localtest
+>>>>>>> trunk
 
 # Symbolication related
 app.*.symbols
