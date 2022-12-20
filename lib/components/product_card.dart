@@ -11,10 +11,6 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    // final data = datas[index % datas.length];
-=======
->>>>>>> trunk
     const borderRadius = BorderRadius.all(Radius.circular(20));
     return InkWell(
       borderRadius: borderRadius,
@@ -25,17 +21,6 @@ class ProductCard extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               borderRadius: borderRadius,
-<<<<<<< HEAD
-              color: Color(0xFFeeeeee),
-            ),
-            child: Stack(
-              children: [
-                Image.asset(data.icon, width: 182, height: 182),
-                Positioned(
-                  top: 16,
-                  right: 16,
-                  child: Image.asset('assets/icons/not_collected@2x.png', width: 28, height: 28),
-=======
               color: Color.fromARGB(255, 97, 85, 85),
             ),
             child: Stack(
@@ -50,7 +35,6 @@ class ProductCard extends StatelessWidget {
                     fit: BoxFit.cover,
                     /* center */
                     alignment: Alignment.center,
-                    
                   ),
                 ),
                 Positioned(
@@ -58,7 +42,6 @@ class ProductCard extends StatelessWidget {
                   right: 16,
                   child: Image.asset('assets/icons/not_collected@2x.png',
                       width: 28, height: 28),
->>>>>>> trunk
                 )
               ],
             ),
@@ -66,11 +49,7 @@ class ProductCard extends StatelessWidget {
           const SizedBox(height: 12),
           FittedBox(
             child: Text(
-<<<<<<< HEAD
-              data.title,
-=======
               data.title.toString().split(' ').first,
->>>>>>> trunk
               style: const TextStyle(
                 color: Color(0xFF212121),
                 fontWeight: FontWeight.bold,
@@ -83,14 +62,10 @@ class ProductCard extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             '\$${data.price.toStringAsFixed(2)}',
-<<<<<<< HEAD
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF212121)),
-=======
             style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF212121)),
->>>>>>> trunk
           )
         ],
       ),
@@ -113,14 +88,10 @@ class ProductCard extends StatelessWidget {
         const SizedBox(width: 8),
         const Text(
           '|',
-<<<<<<< HEAD
-          style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xFF616161), fontSize: 14),
-=======
           style: TextStyle(
               fontWeight: FontWeight.w500,
               color: Color(0xFF616161),
               fontSize: 14),
->>>>>>> trunk
         ),
         const SizedBox(width: 8),
         Container(

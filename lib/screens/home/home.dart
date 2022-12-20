@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import 'package:flutter/material.dart';
-=======
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
->>>>>>> trunk
 import 'package:fresh_store_ui/components/product_card.dart';
 import 'package:fresh_store_ui/model/popular.dart';
 import 'package:fresh_store_ui/screens/detail/detail_screen.dart';
@@ -15,16 +11,6 @@ import 'package:fresh_store_ui/screens/home/search_field.dart';
 import 'package:fresh_store_ui/screens/home/special_offer.dart';
 import 'package:fresh_store_ui/screens/mostpopular/most_popular_screen.dart';
 import 'package:fresh_store_ui/screens/special_offers/special_offers_screen.dart';
-<<<<<<< HEAD
-
-class HomeScreen extends StatefulWidget {
-  final String title;
-
-  static String route() => '/home';
-
-  const HomeScreen({super.key, required this.title});
-
-=======
 import 'package:http/http.dart' as http;
 /* https://www.tluxe.com/products.json fetch this url */
 
@@ -34,15 +20,11 @@ class HomeScreen extends StatefulWidget {
   final String title;
   static String route() => '/home';
   const HomeScreen({super.key, required this.title});
->>>>>>> trunk
   @override
   State<StatefulWidget> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-<<<<<<< HEAD
-  late final datas = homePopularProducts;
-=======
   final url = 'https://www.tluxe.com/products.json';
 
   String query = '''
@@ -98,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
     apiCall();
     super.initState();
   }
->>>>>>> trunk
 
   @override
   Widget build(BuildContext context) {
@@ -159,13 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPopularItem(BuildContext context, int index) {
-<<<<<<< HEAD
-    final data = datas[index % datas.length];
-    return ProductCard(
-      data: data,
-      ontap: (data) => Navigator.pushNamed(context, ShopDetailScreen.route()),
-    );
-=======
     print(products[index]['node']['title']);
     Product prod = Product(
       id: products[index]['node']['id'],
@@ -178,7 +152,6 @@ class _HomeScreenState extends State<HomeScreen> {
         data: prod,
         ontap: (data) => Navigator.pushNamed(context, ShopDetailScreen.route(),
             arguments: data));
->>>>>>> trunk
   }
 
   void _onTapMostPopularSeeAll(BuildContext context) {

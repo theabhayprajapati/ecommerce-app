@@ -1,11 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:fresh_store_ui/routes.dart';
-import 'package:fresh_store_ui/screens/tabbar/tabbar.dart';
-import 'package:fresh_store_ui/theme.dart';
-
-void main() {
-=======
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:fresh_store_ui/routes.dart';
 import 'package:fresh_store_ui/screens/tabbar/tabbar.dart';
@@ -16,7 +9,6 @@ Future main() async {
   await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   await initHiveForFlutter();
->>>>>>> trunk
   runApp(const FreshBuyerApp());
 }
 
