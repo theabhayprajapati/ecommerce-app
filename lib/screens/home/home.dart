@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:fresh_store_ui/components/product_card.dart';
@@ -12,7 +11,6 @@ import 'package:fresh_store_ui/screens/home/special_offer.dart';
 import 'package:fresh_store_ui/screens/mostpopular/most_popular_screen.dart';
 import 'package:fresh_store_ui/screens/special_offers/special_offers_screen.dart';
 import 'package:http/http.dart' as http;
-/* https://www.tluxe.com/products.json fetch this url */
 
 List<dynamic> products = [];
 

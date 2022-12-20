@@ -27,3 +27,4 @@ class FreshBuyerApp extends StatelessWidget {
     );
   }
 }
+
