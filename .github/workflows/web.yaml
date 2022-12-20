@@ -2,14 +2,28 @@ name: Gh-Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2 # Only works with v2
+#       - uses: subosito/flutter-action@v1
+#       - run: flutter pub get
+#       - run: flutter build web
+#       - uses: bluefireteam/flutter-gh-pages@v7
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 # Only works with v2
-      - uses: subosito/flutter-action@v1
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: beta
       - run: flutter pub get
-      - run: flutter build web  
-      - uses: bluefireteam/flutter-gh-pages@v7
+      - run: flutter build web
+      - uses: actions/upload-artifact@v2
+        with:
+          name: web
+          path: build/web
