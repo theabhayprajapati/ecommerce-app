@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
+=======
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+>>>>>>> trunk
 import 'package:fresh_store_ui/components/product_card.dart';
 import 'package:fresh_store_ui/model/popular.dart';
 import 'package:fresh_store_ui/screens/detail/detail_screen.dart';
@@ -8,6 +15,7 @@ import 'package:fresh_store_ui/screens/home/search_field.dart';
 import 'package:fresh_store_ui/screens/home/special_offer.dart';
 import 'package:fresh_store_ui/screens/mostpopular/most_popular_screen.dart';
 import 'package:fresh_store_ui/screens/special_offers/special_offers_screen.dart';
+<<<<<<< HEAD
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -16,12 +24,81 @@ class HomeScreen extends StatefulWidget {
 
   const HomeScreen({super.key, required this.title});
 
+=======
+import 'package:http/http.dart' as http;
+/* https://www.tluxe.com/products.json fetch this url */
+
+List<dynamic> products = [];
+
+class HomeScreen extends StatefulWidget {
+  final String title;
+  static String route() => '/home';
+  const HomeScreen({super.key, required this.title});
+>>>>>>> trunk
   @override
   State<StatefulWidget> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+<<<<<<< HEAD
   late final datas = homePopularProducts;
+=======
+  final url = 'https://www.tluxe.com/products.json';
+
+  String query = '''
+  {
+    products(first: 250) {
+      edges {
+        node {
+            id
+            title
+            handle
+            featuredImage{
+                url
+            }
+            vendor
+            variants(first: 250) {
+                edges {
+                    node { 
+                        price{
+                            amount
+                        }
+                    }
+                }
+            }
+        }
+      }
+    }
+  }
+''';
+
+  void apiCall() async {
+    final response = await http.post(
+      Uri.parse('https://wethekootest.myshopify.com/api/2022-10/graphql.json'),
+      headers: {
+        'Content-Type': 'application/graphql',
+        'X-Shopify-Storefront-Access-Token':
+            dotenv.env['SHOPIFY_STOREFRONT_ACCESS_TOKEN'].toString()
+      },
+      body: query,
+    );
+    if (response.statusCode == 200) {
+      setState(() {
+        // products = response.body;
+        // pasrse to json
+        var parsedRespose = jsonDecode(response.body);
+        print(parsedRespose);
+        products = parsedRespose['data']['products']['edges'];
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    apiCall();
+    super.initState();
+  }
+>>>>>>> trunk
 
   @override
   Widget build(BuildContext context) {
@@ -82,11 +159,26 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPopularItem(BuildContext context, int index) {
+<<<<<<< HEAD
     final data = datas[index % datas.length];
     return ProductCard(
       data: data,
       ontap: (data) => Navigator.pushNamed(context, ShopDetailScreen.route()),
     );
+=======
+    print(products[index]['node']['title']);
+    Product prod = Product(
+      id: products[index]['node']['id'],
+      title: products[index]['node']['title'],
+      price: double.parse(products[index]['node']['variants']['edges'][0]
+          ['node']['price']['amount']),
+      icon: products[index]['node']['featuredImage']['url'],
+    );
+    return ProductCard(
+        data: prod,
+        ontap: (data) => Navigator.pushNamed(context, ShopDetailScreen.route(),
+            arguments: data));
+>>>>>>> trunk
   }
 
   void _onTapMostPopularSeeAll(BuildContext context) {

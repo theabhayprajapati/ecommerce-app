@@ -1,7 +1,10 @@
 class PopularCategory {
   final String category;
   final String id;
+<<<<<<< HEAD
 
+=======
+>>>>>>> trunk
   PopularCategory({this.category = '', this.id = ''});
 }
 
@@ -13,7 +16,27 @@ class Product {
   final String icon;
   final String id;
 
+<<<<<<< HEAD
   Product({this.title = '', this.star = 0.0, this.sold = 0, this.price = 0.0, this.icon = '', this.id = '0'});
+=======
+  Product(
+      {this.title = '',
+      this.star = 0.0,
+      this.sold = 0,
+      this.price = 0.0,
+      this.icon = '',
+      this.id = '0'});
+  fromJson(Map<String, dynamic> json) {
+    return Product(
+      title: json['title'],
+      star: json['star'],
+      sold: json['sold'],
+      price: json['price'],
+      icon: json['icon'],
+      id: json['id'],
+    );
+  }
+>>>>>>> trunk
 }
 
 final homePopularCategories = [

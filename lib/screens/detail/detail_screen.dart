@@ -1,5 +1,9 @@
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+import 'package:fresh_store_ui/model/popular.dart';
+>>>>>>> trunk
 import 'package:fresh_store_ui/size_config.dart';
 
 class ShopDetailScreen extends StatefulWidget {
@@ -17,6 +21,16 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
+=======
+    /* get args */
+    final args = ModalRoute.of(context)!.settings.arguments as Product;
+    print("\$args: $args");
+    print("\$args: $args".replaceAllMapped(
+        RegExp(r'(\w+):'), (match) => '\x1B[32m${match.group(0)}\x1B[0m'));
+    /* print title, price */
+    print("\$args.title: ${args.title}");
+>>>>>>> trunk
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -27,15 +41,30 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                   pinned: true,
                   expandedHeight: getProportionateScreenHeight(428),
                   leading: IconButton(
+<<<<<<< HEAD
                     icon: Image.asset('assets/icons/back@2x.png', scale: 2),
+=======
+                    icon: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset(
+                          'assets/icons/back@2x.png',
+                          scale: 2,
+                        )),
+>>>>>>> trunk
                     onPressed: () => Navigator.pop(context),
                   ),
                   flexibleSpace: FlexibleSpaceBar(
                     background: Container(
                       color: const Color(0xFFeeeeee),
+<<<<<<< HEAD
                       child: Image.asset(
                         'assets/icons/products/detail_sofa.png',
                         fit: BoxFit.none,
+=======
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Image.network(args.icon),
+>>>>>>> trunk
                       ),
                     ),
                   ),
@@ -46,7 +75,11 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+<<<<<<< HEAD
                         ..._buildTitle(),
+=======
+                        ..._buildTitle(args),
+>>>>>>> trunk
                         const SizedBox(height: 16),
                         _buildLine(),
                         const SizedBox(height: 16),
@@ -67,20 +100,38 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
     );
   }
 
+<<<<<<< HEAD
   List<Widget> _buildTitle() {
+=======
+  List<Widget> _buildTitle(Product args) {
+>>>>>>> trunk
     return <Widget>[
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+<<<<<<< HEAD
           const FittedBox(
             child: Text(
               'Mid Century Sofa',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+=======
+          FittedBox(
+            child: Flexible(
+              child: Text(
+                args.title,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+              ),
+>>>>>>> trunk
             ),
           ),
           IconButton(
             onPressed: () => setState(() => _iscollected = !_iscollected),
+<<<<<<< HEAD
             icon: Image.asset('assets/icons/${_iscollected ? 'bold' : 'light'}/heart@2x.png'),
+=======
+            icon: Image.asset(
+                'assets/icons/${_iscollected ? 'bold' : 'light'}/heart@2x.png'),
+>>>>>>> trunk
             iconSize: 28,
           ),
         ],
@@ -117,13 +168,23 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
 
   List<Widget> _buildDescription() {
     return [
+<<<<<<< HEAD
       const Text('Description', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+=======
+      const Text('Description',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+>>>>>>> trunk
       const SizedBox(height: 8),
       const ExpandableText(
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet',
         expandText: 'view more',
         collapseText: 'view less',
+<<<<<<< HEAD
         linkStyle: TextStyle(color: Color(0xFF424242), fontWeight: FontWeight.bold),
+=======
+        linkStyle:
+            TextStyle(color: Color(0xFF424242), fontWeight: FontWeight.bold),
+>>>>>>> trunk
       ),
     ];
   }
@@ -131,7 +192,12 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
   Widget _buildQuantity() {
     return Row(
       children: [
+<<<<<<< HEAD
         const Text('Quantity', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+=======
+        const Text('Quantity',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+>>>>>>> trunk
         const SizedBox(width: 20),
         Container(
           decoration: const BoxDecoration(
@@ -144,7 +210,12 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
             child: Row(
               children: [
                 InkWell(
+<<<<<<< HEAD
                   child: Image.asset('assets/icons/detail/minus@2x.png', scale: 2),
+=======
+                  child:
+                      Image.asset('assets/icons/detail/minus@2x.png', scale: 2),
+>>>>>>> trunk
                   onTap: () {
                     if (_quantity <= 0) return;
                     setState(() => _quantity -= 1);
@@ -158,7 +229,12 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                     )),
                 const SizedBox(width: 20),
                 InkWell(
+<<<<<<< HEAD
                   child: Image.asset('assets/icons/detail/plus@2x.png', scale: 2),
+=======
+                  child:
+                      Image.asset('assets/icons/detail/plus@2x.png', scale: 2),
+>>>>>>> trunk
                   onTap: () => setState(() => _quantity += 1),
                 ),
               ],
@@ -226,9 +302,19 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
+<<<<<<< HEAD
                     Text('Total price', style: TextStyle(color: Color(0xFF757575), fontSize: 12)),
                     SizedBox(height: 6),
                     Text('\$280.00', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+=======
+                    Text('Total price',
+                        style:
+                            TextStyle(color: Color(0xFF757575), fontSize: 12)),
+                    SizedBox(height: 6),
+                    Text('\$280.00',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24)),
+>>>>>>> trunk
                   ],
                 ),
                 buildAddCard()
